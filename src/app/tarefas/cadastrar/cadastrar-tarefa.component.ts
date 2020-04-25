@@ -9,9 +9,10 @@ import { TarefaService, Tarefa } from '../shared';
   templateUrl: './cadastrar-tarefa.component.html',
   styleUrls: ['./cadastrar-tarefa.component.css']
 })
+
 export class CadastrarTarefaComponent implements OnInit {
 
-  @ViewChild('formTarefa', { static: true }) formTarefa: NgForm;
+  @ViewChild('formTarefa') formTarefa: NgForm;
   tarefa: Tarefa;
 
   constructor(
@@ -23,6 +24,7 @@ export class CadastrarTarefaComponent implements OnInit {
     this.tarefa = new Tarefa();
   }
 
+//função para cadastrar a tarefa e retornar a página com a lista (não tá retornando)
   cadastrar(): void {
       if(this.formTarefa.form.valid) {
         this.tarefaService.cadastrar(this.tarefa);
